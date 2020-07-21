@@ -31,38 +31,39 @@ unsigned int rand_()
 
 unsigned int memGen2()
 {
-	static unsigned int addr=0;
-	return (addr++)%(DRAM_SIZE);	//iterator from 0 to DRAM_SIZE-1
+	static unsigned int addr = 0;
+	return (addr++) % (DRAM_SIZE);	//iterator from 0 to DRAM_SIZE-1
 }
 
 unsigned int memGen3()
 {
-	static unsigned int addr=0;
-	return  rand_()%(64*1024);
+	static unsigned int addr = 0;		//random addresses between 0 to 64K-1
+	return  rand_() % (64 * 1024);
 }
 
 unsigned int memGen1()
 {
-	return rand_()%(DRAM_SIZE);		//random number between 0 to DRAM_SIZE-1
+	return rand_() % (DRAM_SIZE);		//random number between 0 to DRAM_SIZE-1
 }
 
 unsigned int memGen4()
 {
-	static unsigned int addr=0;
-	return (addr++)%(1024*4);
+	static unsigned int addr = 0;
+	return (addr++) % (1024 * 4);		//iterator from 0 to 4k-1
 }
 
 unsigned int memGen5()
 {
-	static unsigned int addr=0;
-	return (addr++)%(1024*64);
+	static unsigned int addr = 0;
+	return (addr++) % (1024 * 64);		//iterator from 0 to 64k-1
 }
 
 unsigned int memGen6()
 {
-	static unsigned int addr=0;
-	return (addr+=64)%(128*1024);
+	static unsigned int addr = 0;
+	return (addr += 64) % (128 * 1024);		//iterator from 0 to 128k-1  (address 64 bit aligned)
 }
+
 
 
 // Direct Mapped Cache Simulator
@@ -84,9 +85,6 @@ cacheResType cacheSimDM(unsigned int addr)
 			cache[index][1] = tag;		//insert the tag into cache
 			cache[index][0] =   1;
         }
-
-
-
 
 
 
